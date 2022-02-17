@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+    <title> Vlad's House</title>
 
     <style>
       html,
@@ -38,8 +38,8 @@ const graphicsLayer = new GraphicsLayer();
 
  const point = { //Create a point
     type: "point",
-    longitude: 45.515,
-    latitude: 25.367222
+    longitude: 25.367222,
+    latitude: 45.515
  };
  const simpleMarkerSymbol = {
     type: "simple-marker",
@@ -69,12 +69,12 @@ const graphicsLayer = new GraphicsLayer();
     const polyline = {
     type: "polyline",
     paths: [
-        [45.514870, 25.366572], //Longitude, latitude
-        [45.514870, 25.367642], //Longitude, latitude
-        [45.515297, 25.366757],  //Longitude, latitude
-        [45.514558, 25.367097], //Longitude, latitude
-        [45.515265, 25.367505],
-        [45.514870, 25.366572]
+        [25.366572, 45.514870], //Longitude, latitude
+        [25.367642, 45.514870], //Longitude, latitude
+        [25.366757, 45.515297],  //Longitude, latitude
+        [25.367097, 45.514558], //Longitude, latitude
+        [25.367505, 45.515265],
+        [25.366572, 45.514870]
     ]
  };
  const simpleLineSymbol = {
