@@ -48,6 +48,12 @@ const graphicsLayer = new GraphicsLayer();
         width: 1
     }
  };
+
+ const pointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+ });
+ graphicsLayer.add(pointGraphic);
     });
   </script>
   </head>
