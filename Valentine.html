@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+ <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+ <script src="https://js.arcgis.com/4.22/"></script>
+
+ <script>
+    require(["esri/config","esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/GraphicsLayer"], function (esriConfig,Map, MapView,Graphic, GraphicsLayer) {
+        esriConfig.apiKey = "AAPK7948438e3d354608a45a9308cd28244aamu9dJxFwGegdGS7ycqP0sPaAHzGYcJadXEzRCzbIWSGAs0z_OZoxCxgUVNouzrJ";
+
+const map = new Map({
+  basemap: "arcgis-topographic" // Basemap layer service
+    });
+
+const view = new MapView({
+    map: map,
+    center: [-118.805, 34.027], // Longitude, latitude
+    zoom: 13, // Zoom level
+    container: "viewDiv" // Div element
+        });
+const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ const point = { //Create a point
+    type: "point",
+    longitude: -45.515,
+    latitude: 25.367222
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [Red],  // Red
+    outline: {
+        color: [255, 255, 255], // White
+        width: 1
+    }
+ };
+ const popupTemplate = {
+    title: "{Name}",
+    content: "{Description}"
+ }
+ const attributes = {
+    Name: "Vlad the Impaler:",
+    Description: "'Be my Valentine'"
+ }
+ const pointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+    // popupTemplate: popupTemplate
+    // attribute: attribute
+ });
+ graphicsLayer.add(pointGraphic);
+
+    // Create a line geometry
+    const polyline = {
+    type: "polyline",
+    paths: [
+        [45.514870, 25.366572], //Longitude, latitude
+        [45.514870, 25.367642], //Longitude, latitude
+        [45.515297, 25.366757],  //Longitude, latitude
+        [45.514558, 25.367097], //Longitude, latitude
+        [45.515265, 25.367505],
+        [45.514870, 25.366572]
+    ]
+ };
+ const simpleLineSymbol = {
+    type: "simple-line",
+    color: [0, 0, 0], // Black
+    width: 2
+ };
+
+
+ const polylineGraphic = new Graphic({
+    geometry: polyline,
+    symbol: simpleLineSymbol
+    
+ });
+ graphicsLayer.add(polylineGraphic);
+ 
+    });
+  </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
